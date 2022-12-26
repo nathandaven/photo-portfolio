@@ -12,7 +12,7 @@ function extractPhotos(content: any) {
 }
 
 export default async function getAlbum(id: any) {
-  //const response = await axios.get(`https://photos.app.goo.gl/${id}`);
-  const response = await fetch(`https://photos.app.goo.gl/${id}`);
+  const response = await axios.get(`https://photos.app.goo.gl/${id}`);
+  //const response = await fetch(`https://photos.app.goo.gl/${id}`);
   return extractPhotos(response.body);
 }
