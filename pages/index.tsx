@@ -3,20 +3,18 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import { useEffect } from "react";
-import handler from "./api/hello";
-import axios from "axios";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   useEffect(() => {
-    const galleryID = "jaua16trD4AJBg9m6";
+    const galleryID = "/:jaua16trD4AJBg9m6";
 
-    test(galleryID);
+    fetchPhotos(galleryID);
   }, []);
 
-  const test = async (id: string) => {
-    const response = await fetch("/api/hello");
+  const fetchPhotos = async (galleryID: string) => {
+    const response = await fetch("/api/" + galleryID);
     const data = await response.json();
     console.log(data);
   };

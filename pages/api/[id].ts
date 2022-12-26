@@ -16,11 +16,9 @@ export default async function handler(
   );
 
   try {
-    const results = await getAlbum("jaua16trD4AJBg9m6");
-    //console.log(results);
-    res.status(200).json({ results: results });
+    const results = await getAlbum(req.query.id);
+    res.status(200).json(results);
   } catch (e) {
     res.status(500);
   }
-  /* res.status(200).json({ name: "John Doe" }); */
 }
