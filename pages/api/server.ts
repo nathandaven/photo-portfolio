@@ -8,7 +8,7 @@ const app = express();
 
 import type { NextApiRequest, NextApiResponse } from "next";
 
-app.use(function (req, res, next) {
+app.use(function (req: any, res: any, next: any) {
   const origin = req.headers.origin;
   if (origin) {
     res.setHeader("Access-Control-Allow-Origin", origin);
@@ -20,7 +20,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.get("/:id", async function (request, response) {
+app.get("/:id", async function (request: any, response: any) {
   try {
     const results = await getAlbum(request.params.id);
     response.json(results);
