@@ -1,6 +1,6 @@
 ## Personal Portfolio (2023)
 
-Remaking my personal portfolio site. Hoping to establish a more creative focus,putitng my photography on the forefront. Looking to establish a simpler design, that combines retro 2000s website elements with modern responsive design principles.
+Remaking my personal portfolio site. Hoping to establish a more creative focus, putting my photography on the forefront. Looking to establish a simpler design, that combines retro 2000s website elements with modern responsive design principles.
 
 ### Goals:
 
