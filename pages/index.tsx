@@ -3,27 +3,41 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 
 import PlantsImage from "../public/resources/plants.jpg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import GooglePhoto from "../components/GooglePhoto";
 
 const inter = Inter({ subsets: ["latin"] });
+
+/* thought for caching: https://vercel.com/docs/concepts/functions/serverless-functions/edge-caching */
 
 export default function Home() {
   const fetchPhotos = async (galleryID: string) => {
     const response = await fetch("/api/" + galleryID);
     const data = await response.json();
     console.log(data);
+
+    /* const data: any = fetchPhotos("TzQSCHMmkXxycPxi9"); */
+    const randPhoto: any = data[Math.floor(Math.random() * data.length)];
+    console.log(randPhoto);
+    setHeroPhoto(randPhoto);
+    return data;
   };
 
   const [sidebar, toggleSidebar] = useState("");
-  const [ratio, setRatio] = useState(16 / 9); // default to 16:9
 
   const setSidebar = function (sidebarStyle: boolean) {
     let tag = "";
     if (sidebarStyle) {
-      tag = "pl-96 pl-96";
+      tag = "lg:pl-96 sm:pl-72 sm:pt-4 pt-96";
     }
     toggleSidebar(tag);
   };
+
+  const [heroPhoto, setHeroPhoto] = useState("");
+
+  useEffect(() => {
+    fetchPhotos("TzQSCHMmkXxycPxi9");
+  }, []);
 
   return (
     <>
@@ -44,20 +58,23 @@ export default function Home() {
             sidebar
           }
         >
-          <Image
+          <img
             className="object-cover w-full h-full border-2 border-black dark:border-white"
-            src={PlantsImage}
+            src={heroPhoto ? `${heroPhoto}=w1920` : ""}
+            fill
+            sizes="100vw"
             alt="Full screen image"
           />
+          {/* <GooglePhoto src="https://lh3.googleusercontent.com/GkrqvpKaWjEDCz14ZiT2NKy3Nq6TWeO4j7eHTgUz2_h_tSlcdSRtMrnjvRsnu-gzATBAaYqMQMOEHqi2zm7jnqeUphsW3gWdm9fgRadNkbQXss9vtCuyXqRjqWw-W2QWekyQlQ1HIlk" /> */}
         </div>
 
         {/* Wrapper for homepage elements */}
         <div className=" p-8 z-10 absolute">
           <h1 className="text-black dark:text-white font-medium text-3xl md:text-4xl lg:text-5xl transition-all">
-            <div className="bg-white dark:bg-black">NATHAN</div>
+            <span className="bg-white dark:bg-black">NATHAN</span>
           </h1>
           <h1 className="text-black  dark:text-white  font-medium text-3xl md:text-4xl lg:text-5xl transition-all">
-            <div className="bg-white dark:bg-black">DAVENPORT</div>
+            <span className="bg-white dark:bg-black">DAVENPORT</span>
           </h1>
 
           <ul className="text-black dark:text-white mt-6 underline italic text-md md:text-lg lg:text-lg transition-all">
