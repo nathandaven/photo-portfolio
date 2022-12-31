@@ -82,7 +82,7 @@ export default function Home() {
         </div>
 
         {/* Wrapper for homepage elements */}
-        <div className=" p-8 z-10 absolute">
+        <div className=" p-8 z-10 absolute w-screen h-screen h-screen-ios">
           <h1 className="text-black dark:text-white font-medium text-3xl md:text-4xl lg:text-5xl transition-all">
             <span className="bg-white dark:bg-black">NATHAN</span>
           </h1>
@@ -165,7 +165,7 @@ export default function Home() {
         </div>
 
         {/* Wrapper for bottom elements */}
-        <div className="p-8 z-10 absolute bottom-0">
+        <div className=" p-8 z-10 absolute flex flex-col justify-end w-screen h-screen h-screen-ios">
           {/* TODO: links for social media */}
           <div className="pt-4 ">
             <a
