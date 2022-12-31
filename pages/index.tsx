@@ -20,10 +20,13 @@ export default function Home() {
     const randPhoto: any = data[Math.floor(Math.random() * data.length)];
     console.log(randPhoto);
     setHeroPhoto(randPhoto);
+
+    setData(data);
     return data;
   };
 
   const [sidebar, toggleSidebar] = useState("");
+  const [data, setData] = useState("");
 
   const setSidebar = function (sidebarStyle: boolean) {
     let tag = "";
@@ -35,8 +38,16 @@ export default function Home() {
 
   const [heroPhoto, setHeroPhoto] = useState("");
 
+  const randomizeHeroPhoto = () => {
+    const newHero = data[Math.floor(Math.random() * data.length)];
+    console.log(data);
+    console.log(newHero);
+    setHeroPhoto(newHero);
+  };
+
   useEffect(() => {
-    fetchPhotos("TzQSCHMmkXxycPxi9");
+    const data: any = fetchPhotos("TzQSCHMmkXxycPxi9");
+    setData(data);
   }, []);
 
   return (
@@ -60,11 +71,12 @@ export default function Home() {
         >
           <div className="relative w-full h-full">
             <Image
-              className="object-cover border-2 border-black dark:border-white"
+              className="object-cover border-2 border-black dark:border-white cursor-pointer"
               src={heroPhoto ? `${heroPhoto}=w1920` : ""}
               fill
-              sizes="100%"
+              priority
               alt="Full screen image"
+              onClick={randomizeHeroPhoto}
             />
           </div>
         </div>
