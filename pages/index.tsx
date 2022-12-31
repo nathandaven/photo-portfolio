@@ -77,6 +77,7 @@ export default function Home() {
               priority
               alt="Full screen image"
               onClick={randomizeHeroPhoto}
+              onTouchStart={{ randomizeHeroPhoto }}
             />
           </div>
         </div>
