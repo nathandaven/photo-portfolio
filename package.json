@@ -23,6 +23,7 @@
     "typescript": "4.9.4"
   },
   "devDependencies": {
+    "@rvxlab/tailwind-plugin-ios-full-height": "^1.1.0",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.20",
     "tailwindcss": "^3.2.4"

@@ -69,7 +69,7 @@ export default function Home() {
             sidebar
           }
         >
-          <div className="relative w-full h-full">
+          <div className="relative w-full h-full h-screen-ios">
             <Image
               className="object-cover border-2 border-black dark:border-white cursor-pointer"
               src={heroPhoto ? `${heroPhoto}=w1920` : ""}
