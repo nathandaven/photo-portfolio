@@ -65,11 +65,11 @@ export default function Home() {
         {/* Wrapper for background image */}
         <div
           className={
-            "absolute flex flex-row justify-center h-screen w-screen z-0 p-4 transition-all " +
+            "absolute flex flex-row justify-center h-screen h-screen-ios w-screen z-0 p-4 transition-all " +
             sidebar
           }
         >
-          <div className="relative w-full h-full h-screen-ios">
+          <div className="relative w-full h-full">
             <Image
               className="object-cover border-2 border-black dark:border-white cursor-pointer"
               src={heroPhoto ? `${heroPhoto}=w1920` : ""}
