@@ -58,15 +58,15 @@ export default function Home() {
             sidebar
           }
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            className="object-cover w-full h-full border-2 border-black dark:border-white"
-            src={heroPhoto ? `${heroPhoto}=w1920` : ""}
-            /* fill */
-            /* sizes="100vw" */
-            alt="Full screen image"
-          />
-          {/* <GooglePhoto src="https://lh3.googleusercontent.com/GkrqvpKaWjEDCz14ZiT2NKy3Nq6TWeO4j7eHTgUz2_h_tSlcdSRtMrnjvRsnu-gzATBAaYqMQMOEHqi2zm7jnqeUphsW3gWdm9fgRadNkbQXss9vtCuyXqRjqWw-W2QWekyQlQ1HIlk" /> */}
+          <div className="relative w-full h-full">
+            <Image
+              className="object-cover border-2 border-black dark:border-white"
+              src={heroPhoto ? `${heroPhoto}=w1920` : ""}
+              fill
+              sizes="100%"
+              alt="Full screen image"
+            />
+          </div>
         </div>
 
         {/* Wrapper for homepage elements */}
