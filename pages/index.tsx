@@ -169,7 +169,7 @@ export default function Home() {
           <ul className="text-black dark:text-white mt-6 underline italic text-md md:text-lg lg:text-lg transition-all">
             <li>
               <a
-                className="-100 bg-white dark:bg-black hover:font-bold"
+                className="h-100 bg-white dark:bg-black hover:font-bold cursor-pointer"
                 onClick={randomizeHeroPhoto}
               >
                 New Photo
@@ -177,7 +177,7 @@ export default function Home() {
             </li>
             <li>
               <a
-                className="h-100 bg-white dark:bg-black hover:font-bold"
+                className="h-100 bg-white dark:bg-black hover:font-bold cursor-pointer"
                 onClick={() => setSidebar(!sidebar)}
               >
                 Expand
