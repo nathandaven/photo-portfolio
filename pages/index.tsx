@@ -76,14 +76,12 @@ export default function Home() {
               fill
               priority
               alt="Full screen image"
-              onClick={randomizeHeroPhoto}
-              onTouchStart={randomizeHeroPhoto}
             />
           </div>
         </div>
 
         {/* Wrapper for homepage elements */}
-        <div className=" p-8 z-10 absolute w-screen h-screen h-screen-ios">
+        <div className=" p-8 z-20 absolute">
           <h1 className="text-black dark:text-white font-medium text-3xl md:text-4xl lg:text-5xl transition-all">
             <span className="bg-white dark:bg-black">NATHAN</span>
           </h1>
@@ -166,16 +164,26 @@ export default function Home() {
         </div>
 
         {/* Wrapper for bottom elements */}
-        <div className=" p-8 z-10 absolute flex flex-col justify-end w-screen h-screen h-screen-ios">
+        <div className=" p-8 z-10 absolute flex flex-col justify-end h-screen h-screen-ios">
           {/* TODO: links for social media */}
-          <div className="pt-4 ">
-            <a
-              className="underline cursor-pointer bg-white dark:bg-black"
-              onClick={() => setSidebar(!sidebar)}
-            >
-              Expand
-            </a>
-          </div>
+          <ul className="text-black dark:text-white mt-6 underline italic text-md md:text-lg lg:text-lg transition-all">
+            <li>
+              <a
+                className="-100 bg-white dark:bg-black hover:font-bold"
+                onClick={randomizeHeroPhoto}
+              >
+                New Photo
+              </a>
+            </li>
+            <li>
+              <a
+                className="h-100 bg-white dark:bg-black hover:font-bold"
+                onClick={() => setSidebar(!sidebar)}
+              >
+                Expand
+              </a>
+            </li>
+          </ul>
         </div>
       </main>
     </>
