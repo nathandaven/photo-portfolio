@@ -1,4 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Personal Portfolio (2023)
+
+Remaking my personal portfolio site. Hoping to establish a more creative focus,putitng my photography on the forefront. Looking to establish a simpler design, that combines retro 2000s website elements with modern responsive design principles.
+
+### Goals:
+
+- [x] Homepage with rotating images
+- [ ] Improve Google Photos API to cache results for quicker & better looking loading (options include a github action to manage API and store in repo, or implement caching thru Next.js, or both)
+- [ ] Implement an overall design language that fits better with my goals
+- [ ] Port over the most important info from old site, while consolidating and simplifying
+- [ ] Consider a new CMS that fits better with the project. Contentful was a bit clunky for me.
+
+## Technologies used
+
+- Next.JS
+- React
+- Vercel deployment
+- Rest API's using Next.js api routes
+- Google Photos
+- A to be determined CMS
 
 ## Getting Started
 
@@ -12,25 +31,6 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Contact
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Email: [nathandaven@gmail.com](mailto:nathandaven@gmail.com)
