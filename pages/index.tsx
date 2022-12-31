@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 
 import PlantsImage from "../public/resources/plants.jpg";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,10 +14,21 @@ export default function Home() {
     console.log(data);
   };
 
+  const [sidebar, toggleSidebar] = useState("");
+  const [ratio, setRatio] = useState(16 / 9); // default to 16:9
+
+  const setSidebar = function (sidebarStyle: boolean) {
+    let tag = "";
+    if (sidebarStyle) {
+      tag = "pl-96 pl-96";
+    }
+    toggleSidebar(tag);
+  };
+
   return (
     <>
       <Head>
-        <title>Nathan Davenport's Portfolio</title>
+        <title>Nathan Davenport&apos;s Portfolio</title>
         <meta
           name="description"
           content="Nathan Davenport's showcase of photography and experience."
@@ -25,62 +37,114 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className="absolute flex flex-col justify-center h-screen w-screen z-0">
+        {/* Wrapper for background image */}
+        <div
+          className={
+            "absolute flex flex-row justify-center h-screen w-screen z-0 p-4 transition-all " +
+            sidebar
+          }
+        >
           <Image
-            className="w-auto h-auto align-middle p-4 text-center max-h-screen"
+            className="object-cover w-full h-full border-2 border-black dark:border-white"
             src={PlantsImage}
-            alt=""
+            alt="Full screen image"
           />
         </div>
+
+        {/* Wrapper for homepage elements */}
         <div className=" p-8 z-10 absolute">
-          <h1 className="text-black bg-white font-medium text-4xl">
-            Nathan Davenport
+          <h1 className="text-black dark:text-white font-medium text-3xl md:text-4xl lg:text-5xl transition-all">
+            <div className="bg-white dark:bg-black">NATHAN</div>
           </h1>
-          <ul className="text-black mt-4 underline italic">
+          <h1 className="text-black  dark:text-white  font-medium text-3xl md:text-4xl lg:text-5xl transition-all">
+            <div className="bg-white dark:bg-black">DAVENPORT</div>
+          </h1>
+
+          <ul className="text-black dark:text-white mt-6 underline italic text-md md:text-lg lg:text-lg transition-all">
             <li>
-              <a href="" className="h-100 bg-white  hover:font-bold">
+              <a
+                href=""
+                className="h-100 bg-white dark:bg-black hover:font-bold"
+              >
                 Selections
               </a>
             </li>
+
+            {/* Album selector */}
             <li>
-              <a href="" className="h-100 bg-white  hover:font-bold">
+              <a
+                href=""
+                className="h-100 bg-white dark:bg-black hover:font-bold"
+              >
                 Portraits
               </a>
             </li>
             <li>
-              <a href="" className="h-100 bg-white  hover:font-bold">
+              <a
+                href=""
+                className="h-100 bg-white dark:bg-black hover:font-bold"
+              >
                 Live Music
               </a>
             </li>
             <li>
-              <a href="" className="h-100 bg-white  hover:font-bold">
+              <a
+                href=""
+                className="h-100 bg-white dark:bg-black hover:font-bold"
+              >
                 Misc
               </a>
             </li>
           </ul>
 
-          <ul className="text-black mt-4 underline italic">
+          {/* Site links */}
+          <ul className="text-black dark:text-white mt-4 underline italic text-md md:text-lg lg:text-lg transition-all">
             <li>
-              <a href="" className="h-100 bg-white  hover:font-bold">
+              <a
+                href=""
+                className="h-100 bg-white dark:bg-black hover:font-bold"
+              >
                 Projects
               </a>
             </li>
             <li>
-              <a href="" className="h-100 bg-white  hover:font-bold">
+              <a
+                href=""
+                className="h-100 bg-white dark:bg-black hover:font-bold"
+              >
                 Albums
               </a>
             </li>
             <li>
-              <a href="" className="h-100 bg-white  hover:font-bold">
+              <a
+                href=""
+                className="h-100 bg-white dark:bg-black hover:font-bold"
+              >
                 About
               </a>
             </li>
             <li>
-              <a href="" className="h-100 bg-white  hover:font-bold">
+              <a
+                href=""
+                className="h-100 bg-white dark:bg-black hover:font-bold"
+              >
                 Contact
               </a>
             </li>
           </ul>
+        </div>
+
+        {/* Wrapper for bottom elements */}
+        <div className="p-8 z-10 absolute bottom-0">
+          {/* TODO: links for social media */}
+          <div className="pt-4 ">
+            <a
+              className="underline cursor-pointer bg-white dark:bg-black"
+              onClick={() => setSidebar(!sidebar)}
+            >
+              Expand
+            </a>
+          </div>
         </div>
       </main>
     </>

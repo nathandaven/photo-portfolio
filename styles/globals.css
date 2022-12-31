@@ -16,7 +16,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: rgb(255, 0, 0);
+    --background: rgb(0, 0, 0);
     --text-color: rgb(255, 255, 255);
     --text-background: rgb(0, 0, 0);
   }
@@ -35,7 +35,7 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: var(--foreground-rgb);
   background: var(--background);
 }
 
