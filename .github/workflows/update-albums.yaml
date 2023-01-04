@@ -19,6 +19,7 @@ jobs:
       # Fetch
       - name: Fetch photo album
         run: |
+          mkdir output
           curl \
             -H 'Accept: application/json' \
             https://photo-portfolio-amber.vercel.app/api/TzQSCHMmkXxycPxi9 \
