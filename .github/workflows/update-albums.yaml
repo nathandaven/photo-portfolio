@@ -15,13 +15,13 @@ jobs:
     steps:
       # Depedencies
       - uses: actions/checkout@v3
-      
-      # Fetch 
+
+      # Fetch
       - name: Fetch photo album
-        run: | 
-          curl
-            -H 'Accept: application/json' 
-            https://photo-portfolio-amber.vercel.app/api/TzQSCHMmkXxycPxi9 
+        run: |
+          curl \
+            -H 'Accept: application/json' \
+            https://photo-portfolio-amber.vercel.app/api/TzQSCHMmkXxycPxi9 \
             -o output/album.json
 
       - name: Upload artifacts
@@ -31,7 +31,7 @@ jobs:
           # Produced by getJarvisDiag.sh
           path: ./output
           if-no-files-found: ignore
-      
+
       - name: Generate Github summary
         shell: bash
         run: |
