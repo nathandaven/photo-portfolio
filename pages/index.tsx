@@ -5,6 +5,7 @@ import { Inter } from "@next/font/google";
 import PlantsImage from "../public/resources/plants.jpg";
 import { useEffect, useState } from "react";
 import GooglePhoto from "../components/GooglePhoto";
+import Menu from "../components/Menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,7 +47,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const data: any = fetchPhotos("TzQSCHMmkXxycPxi9");
+    const data: any = fetchPhotos("jaua16trD4AJBg9m6");
     setData(data);
   }, []);
 
@@ -71,97 +72,17 @@ export default function Home() {
         >
           <div className="relative w-full h-full">
             <Image
-              className="object-cover border-2 border-black dark:border-white cursor-pointer"
+              className="object-cover border-2 border-black dark:border-white"
               src={heroPhoto ? `${heroPhoto}=w1920` : ""}
               fill
               priority
               alt="Full screen image"
+              referrerPolicy="no-referrer"
             />
           </div>
         </div>
 
-        {/* Wrapper for homepage elements */}
-        <div className=" p-8 z-20 absolute">
-          <h1 className="text-black dark:text-white font-medium text-3xl md:text-4xl lg:text-5xl transition-all">
-            <span className="bg-white dark:bg-black">NATHAN</span>
-          </h1>
-          <h1 className="text-black  dark:text-white  font-medium text-3xl md:text-4xl lg:text-5xl transition-all">
-            <span className="bg-white dark:bg-black">DAVENPORT</span>
-          </h1>
-
-          <ul className="text-black dark:text-white mt-6 underline italic text-md md:text-lg lg:text-lg transition-all">
-            <li>
-              <a
-                href=""
-                className="h-100 bg-white dark:bg-black hover:font-bold"
-              >
-                Selections
-              </a>
-            </li>
-
-            {/* Album selector */}
-            <li>
-              <a
-                href=""
-                className="h-100 bg-white dark:bg-black hover:font-bold"
-              >
-                Portraits
-              </a>
-            </li>
-            <li>
-              <a
-                href=""
-                className="h-100 bg-white dark:bg-black hover:font-bold"
-              >
-                Live Music
-              </a>
-            </li>
-            <li>
-              <a
-                href=""
-                className="h-100 bg-white dark:bg-black hover:font-bold"
-              >
-                Misc
-              </a>
-            </li>
-          </ul>
-
-          {/* Site links */}
-          <ul className="text-black dark:text-white mt-4 underline italic text-md md:text-lg lg:text-lg transition-all">
-            <li>
-              <a
-                href=""
-                className="h-100 bg-white dark:bg-black hover:font-bold"
-              >
-                Projects
-              </a>
-            </li>
-            <li>
-              <a
-                href=""
-                className="h-100 bg-white dark:bg-black hover:font-bold"
-              >
-                Albums
-              </a>
-            </li>
-            <li>
-              <a
-                href=""
-                className="h-100 bg-white dark:bg-black hover:font-bold"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href=""
-                className="h-100 bg-white dark:bg-black hover:font-bold"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
+        <Menu />
 
         {/* Wrapper for bottom elements */}
         <div className=" p-8 z-10 absolute flex flex-col justify-end h-screen h-screen-ios">
