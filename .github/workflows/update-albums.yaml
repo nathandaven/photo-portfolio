@@ -30,11 +30,11 @@ jobs:
         with:
           name: artifacts
           # Produced by getJarvisDiag.sh
-          path: ./output
+          path: ./public/album-data
           if-no-files-found: ignore
 
       - name: Generate Github summary
         shell: bash
         run: |
           echo "Creating Github Action summary..."
-          echo "$(< ./output/album.json)" >> $GITHUB_STEP_SUMMARY
+          echo "$(ls ./public/album-data)" >> $GITHUB_STEP_SUMMARY

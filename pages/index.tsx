@@ -6,28 +6,16 @@ import PlantsImage from "../public/resources/plants.jpg";
 import { useEffect, useState } from "react";
 import GooglePhoto from "../components/GooglePhoto";
 import Menu from "../components/Menu";
+import { Image as GalleryImage } from "react-grid-gallery";
 
 const inter = Inter({ subsets: ["latin"] });
 
 /* thought for caching: https://vercel.com/docs/concepts/functions/serverless-functions/edge-caching */
 
 export default function Home() {
-  const fetchPhotos = async (galleryID: string) => {
-    const response = await fetch("/api/" + galleryID);
-    const data = await response.json();
-    console.log(data);
-
-    /* const data: any = fetchPhotos("TzQSCHMmkXxycPxi9"); */
-    const randPhoto: any = data[Math.floor(Math.random() * data.length)];
-    console.log(randPhoto);
-    setHeroPhoto(randPhoto);
-
-    setData(data);
-    return data;
-  };
-
   const [sidebar, toggleSidebar] = useState("");
-  const [data, setData] = useState("");
+  const [data, setData] = useState();
+  const [heroPhoto, setHeroPhoto] = useState<GalleryImage>();
 
   const setSidebar = function (sidebarStyle: boolean) {
     let tag = "";
@@ -37,18 +25,23 @@ export default function Home() {
     toggleSidebar(tag);
   };
 
-  const [heroPhoto, setHeroPhoto] = useState("");
+  const fetchPhotos = async (galleryID: string) => {
+    console.log("fetching images from https://photos.app.goo.gl/" + galleryID);
+    const response = await fetch("/api/" + galleryID);
+    const data = await response.json();
+    return data;
+  };
 
-  const randomizeHeroPhoto = () => {
-    const newHero = data[Math.floor(Math.random() * data.length)];
-    console.log(data);
-    console.log(newHero);
-    setHeroPhoto(newHero);
+  const randomizeHeroPhoto = (data: any) => {
+    const newHero: any = data[Math.floor(Math.random() * data.length)];
+    return newHero;
   };
 
   useEffect(() => {
-    const data: any = fetchPhotos("jaua16trD4AJBg9m6");
-    setData(data);
+    fetchPhotos("jaua16trD4AJBg9m6").then((data) => {
+      setHeroPhoto(randomizeHeroPhoto(data));
+      setData(data);
+    });
   }, []);
 
   return (
@@ -71,14 +64,20 @@ export default function Home() {
           }
         >
           <div className="relative w-full h-full">
-            <Image
-              className="object-cover border-2 border-black dark:border-white"
-              src={heroPhoto ? `${heroPhoto}=w1920` : ""}
-              fill
-              priority
-              alt="Full screen image"
-              referrerPolicy="no-referrer"
-            />
+            {heroPhoto ? (
+              <Image
+                className="object-cover border-2 border-black dark:border-white"
+                src={`${heroPhoto.src}=w1920`}
+                fill
+                priority
+                placeholder="blur"
+                blurDataURL={`${heroPhoto.src}`}
+                alt="Full screen image"
+                referrerPolicy="no-referrer"
+              />
+            ) : (
+              <div className="object-cover w-full h-full border-2 border-black dark:border-white"></div>
+            )}
           </div>
         </div>
 
@@ -91,7 +90,7 @@ export default function Home() {
             <li>
               <a
                 className="h-100 bg-white dark:bg-black hover:font-bold cursor-pointer"
-                onClick={randomizeHeroPhoto}
+                onClick={() => setHeroPhoto(randomizeHeroPhoto(data))}
               >
                 New Photo
               </a>
