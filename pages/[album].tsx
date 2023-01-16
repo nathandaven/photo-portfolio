@@ -3,10 +3,19 @@ import { useRouter } from "next/router";
 
 import PhotoGrid from "../components/PhotoGrid";
 import Menu from "../components/Menu";
+import { useEffect, useState } from "react";
 
 export default function Album() {
   const router = useRouter();
   const album = router.query.album as string;
+
+  const [query, setQuery] = useState<any>("");
+  useEffect(() => {
+    if (router.isReady) {
+      // Code using query
+      setQuery(router.query.album?.toString());
+    }
+  }, [router.isReady, router.query, query]);
 
   return (
     <>
@@ -20,7 +29,7 @@ export default function Album() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <Menu></Menu> */}
-      <PhotoGrid album={useRouter().query.album as string} />
+      {query !== "" ? <PhotoGrid album={query} /> : <></>}
     </>
   );
 }
