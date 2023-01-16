@@ -2,6 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import getAlbum from "./google-photos";
 import { readFileSync, existsSync, writeFileSync } from "fs";
+import path from "path";
 
 export default async function handler(
   req: NextApiRequest,
@@ -17,19 +18,20 @@ export default async function handler(
   );
 
   try {
-    const path = "public/album-data/" + req.query.id + ".json";
-    if (!existsSync(path)) {
+    const albumPath = path.resolve(
+      "public/album-data/" + req.query.id + ".json"
+    );
+    if (!existsSync(albumPath)) {
       console.log("pulling from google photos...");
       const data = JSON.stringify(await getAlbum(req.query.id));
-      writeFileSync(path, data);
+      writeFileSync(albumPath, data);
     }
 
-    console.log("reading cached file: " + path);
-    res.status(200).json(JSON.parse(readFileSync(path, "utf8")));
-
-    //const results = await getAlbum(req.query.id);
-    //res.status(200).json(results);
+    console.log("reading cached file: " + albumPath);
+    res.status(200).json(JSON.parse(readFileSync(albumPath, "utf8")));
   } catch (e) {
+    // res.json(e);
     res.status(500);
+    // res.end();
   }
 }
