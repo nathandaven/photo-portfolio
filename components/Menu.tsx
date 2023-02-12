@@ -9,7 +9,7 @@ export default function Menu() {
   return (
     <>
       {/* Wrapper for homepage elements */}
-      <div className=" p-8 z-20 absolute">
+      <div className=" p-8 z-20 sm:fixed top-0 left-0 ">
         <Link href="/">
           <h1 className="text-black dark:text-white font-medium text-3xl md:text-4xl lg:text-5xl transition-all">
             <span className="bg-white dark:bg-black">NATHAN</span>
@@ -76,7 +76,7 @@ export default function Menu() {
           </li>
           <li>
             <Link
-              href="https://nathandaven.com"
+              href="/about"
               className="h-100 bg-white dark:bg-black hover:font-bold"
             >
               About

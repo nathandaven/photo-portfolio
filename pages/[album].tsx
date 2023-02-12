@@ -1,9 +1,13 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import PhotoGrid from "../components/PhotoGrid";
+//import PhotoGrid from "../components/PhotoGrid";
 import Menu from "../components/Menu";
 import { useEffect, useState } from "react";
+
+import { GooglePhotoList } from "../components/GooglePhotoList";
+import { View } from "../components/GooglePhotoList";
+import { Page } from "../components/Page";
 
 export default function Album() {
   const router = useRouter();
@@ -28,8 +32,27 @@ export default function Album() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <Menu></Menu> */}
-      {query !== "" ? <PhotoGrid album={query} /> : <></>}
+      <Page expand={false}>
+        {/* <div className="container mx-auto px-4 xl:px-20 min-h-screen flex justify-around items-baseline text-center flex-col "> */}
+        <div className="/* min-h-screen w-full */">
+          {query ? (
+            <GooglePhotoList
+              galleryID={query}
+              view={View.LIST}
+              cropPreviews={false}
+              order={false}
+            ></GooglePhotoList>
+          ) : (
+            <div>loading...</div>
+          )}
+        </div>
+        {/* </div> */}
+      </Page>
     </>
   );
+}
+
+// old way
+{
+  /* <div className="container mx-auto px-4 md:px-10 lg:px-40 xl:px-60 2xl:px-80 min-h-screen flex justify-around items-baseline text-center flex-col transition-all"></div> */
 }

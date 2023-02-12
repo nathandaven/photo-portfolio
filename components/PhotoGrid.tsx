@@ -57,7 +57,6 @@ export default function PhotoGrid(props: { album: string }) {
             enableImageSelection={false}
             rowHeight={500}
             thumbnailImageComponent={ImageComponent}
-
             /* thumbnailStyle={{}} */
           />
         </div>
