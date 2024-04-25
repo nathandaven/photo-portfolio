@@ -72,7 +72,9 @@ export const GooglePhotoList: FunctionComponent<Props> = ({
               key={index}
             >
               <Image
-                className={"cursor-pointer object-cover relative w-full h-auto"}
+                className={
+                  "cursor-pointer object-cover relative w-full h-auto border-2 border-black dark:border-white"
+                }
                 width={image.width}
                 height={image.height}
                 src={`${image.src}=w1200`}

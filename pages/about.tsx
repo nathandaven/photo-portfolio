@@ -6,7 +6,7 @@ export default function About() {
   return (
     <Page expand={false}>
       <div className="mt-5 p-5 border-2 border-black dark:border-white">
-        <h1 className="pb-5 text-black dark:text-white font-medium text-3xl md:text-4xl lg:text-5xl transition-all">
+        <h1 className="pb-5 text-black dark:text-white font-medium text-3xl md:text-3xl lg:text-4xl transition-all text-center">
           ABOUT
         </h1>
         <p className="py-2 text-md">
