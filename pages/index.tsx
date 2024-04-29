@@ -63,6 +63,14 @@ export default function Landing() {
               github
             </a>
           </li>
+          <li className=" text-md list-item italic underline">
+            <a
+              className="hover:font-bold"
+              href="https://nathandaven.substack.com/"
+            >
+              substack
+            </a>
+          </li>
         </ul>
 
         <p className="pt-5">or, shoot me an email:</p>
