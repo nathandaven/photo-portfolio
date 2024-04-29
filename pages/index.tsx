@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Meta } from "../components/Meta";
 
 export default function Landing() {
@@ -74,6 +75,7 @@ export default function Landing() {
           </a>
         </p>
       </main>
+      <GoogleAnalytics gaId="G-X1XTCSK8DT" />
     </>
   );
 }
