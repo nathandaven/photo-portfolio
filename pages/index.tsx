@@ -1,6 +1,5 @@
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Meta } from "../components/Meta";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default function Landing() {
   return (
@@ -85,7 +84,6 @@ export default function Landing() {
         </p>
       </main>
       <GoogleAnalytics gaId="G-X1XTCSK8DT" />
-      <SpeedInsights />
     </>
   );
 }
