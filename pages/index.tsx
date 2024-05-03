@@ -1,10 +1,12 @@
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Meta } from "../components/Meta";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default function Landing() {
   return (
     <>
       <Meta />
+      <SpeedInsights />
       <main className="m-5 p-5 text-center h-100">
         <h1 className="pb-5 text-black dark:text-white font-medium text-3xl md:text-3xl lg:text-4xl transition-all text-center h-100">
           hi!
